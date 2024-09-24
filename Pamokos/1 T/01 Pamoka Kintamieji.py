@@ -19,3 +19,38 @@
 # Kintamųjų priskyrimas:
 a = 5
 print(a)  # 5
+
+# Matematinių operacijų naudojimas su kintamaisiais:
+
+# Sudėtis
+b = 10
+c = a + b
+print(c)  # 15
+
+# Atimtis
+d = a - b
+print(d)  # -5
+
+# Daugyba
+e = a * b
+print(e)  # 50
+
+# Dalyba
+f = a / b
+print(f)  # 0.5
+
+# Liekana
+a = 4
+b = 10
+g = b % a
+print(g)  # 2
+
+# Sveikųjų skaičių dalyba
+h1 = b / a
+h2 = b // a  # sveikųjų skaičių dalyba, atmetam viska po kablelio
+print(h1)  # 2.5
+print(h2)  # 2
+
+# Laipsnio kelimas
+i = 2 ** 10  # 2 pakeliamas laipsniu 10
+print(i)  # 1024
