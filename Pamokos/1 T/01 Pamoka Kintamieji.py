@@ -54,3 +54,21 @@ print(h2)  # 2
 # Laipsnio kelimas
 i = 2 ** 10  # 2 pakeliamas laipsniu 10
 print(i)  # 1024
+
+# Sveikas skaicius
+integer_number = 5
+
+# Realus skaicius
+float_number = 5.5
+
+# Tekstas
+text = "Hello, World!"
+
+# Logine reiksme
+logical = True
+
+# Išvedame kintamuosius
+print(integer_number)
+print(float_number)
+print(text)
+print(logical)
