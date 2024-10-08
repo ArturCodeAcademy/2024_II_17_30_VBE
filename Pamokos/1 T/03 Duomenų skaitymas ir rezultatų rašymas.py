@@ -58,3 +58,24 @@ print(text_from_user)  # Atspausdins įvestą tekstą.
 
 name = input("Įveskite savo vardą: ")  # Programa sustos ir lauks kol vartotojas įves tekstą ir paspaus enter.
 print(f"Sveiki, {name}!")  # Atspausdins įvestą vardą.
+
+# Specialiaji simboliai:
+# \n - nauja eilutė
+# \t - tabuliacija
+# \\ - atspausdina \
+# \" - atspausdina "
+# \' - atspausdina '
+print("Hello\nWorld!")  # Hello
+                        # World!
+
+print("Hello\tWorld!")  # Hello   World!
+
+print("\\")  # \
+
+print("\"")  # "
+print('"')  # "
+
+print("'")  # '
+print('\'')  # '
+
+print("\"Hello\" World!")  # "Hello" World!
