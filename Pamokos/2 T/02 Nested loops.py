@@ -72,7 +72,7 @@ for i in range(1, 10):
             break
         print(f"{i} * {j} = {i * j}")
     else:
-        print("Vidinis ciklas baigtas su break")
+        print("Vidinis ciklas baigtas be break")
     print()
 
 
@@ -86,7 +86,7 @@ while i < 10:
         print(f"{i} * {j} = {i * j}")
         j += 1
     else:
-        print("Vidinis ciklas baigtas su break")
+        print("Vidinis ciklas baigtas be break")
     i += 1
     print()
 
