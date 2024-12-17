@@ -102,3 +102,153 @@ print(arr2 * 3)  # [7, 8, 9, 7, 8, 9, 7, 8, 9]
 # Išvalyti masyvą galime naudojant clear() metodą
 arr.clear()  # Išvalome masyvą
 print(arr)  # []
+
+
+# Tam, kad nukopijuoti masyvą, butinai reikia naudoti copy() metodą
+# Jei mes tiesiog priskirsime masyvą kintamajam, tai kintamasis rodis į tą patį masyvą
+
+arr = [1, 2, 3, 4, 5]
+arr2 = arr  # arr2 rodo į tą patį masyvą kaip ir arr
+
+arr2[0] = 10  # Pakeičiame arr2 pirmą elementą į 10
+
+# Nors pakeitėme arr2, bet pakeitimas paveikė ir arr
+# Nes abu kintamieji rodo į tą patį masyvą
+print(arr)  # [10, 2, 3, 4, 5]
+print(arr2)  # [10, 2, 3, 4, 5]
+
+# Norint nukopijuoti masyvą, reikia naudoti copy() metodą
+arr = [1, 2, 3, 4, 5]
+arr2 = arr.copy()  # arr2 dabar rodo į naują masyvą, kuris yra kopija arr
+
+arr2[0] = 10  # Pakeičiame arr2 pirmą elementą į 10
+
+# Pakeitimas paveikė tik arr2, nes arr2 yra kopija arr
+print(arr)  # [1, 2, 3, 4, 5]
+print(arr2)  # [10, 2, 3, 4, 5]
+
+# Taip pat galime naudoti slice operatorių
+arr = [1, 2, 3, 4, 5]
+arr2 = arr[:]  # arr2 dabar rodo į naują masyvą, kuris yra kopija arr
+
+arr2[0] = 10  # Pakeičiame arr2 pirmą elementą į 10
+
+# Pakeitimas paveikė tik arr2, nes arr2 yra kopija arr
+print(arr)  # [1, 2, 3, 4, 5]
+print(arr2)  # [10, 2, 3, 4, 5]
+
+# Taip pat galime naudoti list() funkciją
+arr = [1, 2, 3, 4, 5]
+arr2 = list(arr)  # arr2 dabar rodo į naują masyvą, kuris yra kopija arr
+
+arr2[0] = 10  # Pakeičiame arr2 pirmą elementą į 10
+
+# Pakeitimas paveikė tik arr2, nes arr2 yra kopija arr
+print(arr)  # [1, 2, 3, 4, 5]
+
+# Tai galime naudoti bet kurią iš šių trijų galimybių
+# (copy(), slice operatorius, list() funkciją)
+
+# Naudojant slice operatorių galime nukopijuoti tik dalį masyvo
+arr = [1, 2, 3, 4, 5]
+arr2 = arr[1:4]  # Kopijuojame masyvo dalį nuo indekso 1 iki 4
+
+# [from:to] - nuo indekso from iki indekso to
+# from - įskaitant, to - neįskaitant
+print(arr2)  # [2, 3, 4]
+
+# Taipat galime nurodyti tik vieną indeksą
+# Tuomet bus kopijuojama nuo nurodyto indekso iki galo
+arr = [1, 2, 3, 4, 5]
+arr2 = arr[2:]  # Kopijuojame masyvo dalį nuo indekso 2 iki galo
+print(arr2)  # [3, 4, 5]
+
+# Arba nuo pradžios iki nurodyto indekso
+arr = [1, 2, 3, 4, 5]
+arr2 = arr[:3]  # Kopijuojame masyvo dalį nuo pradžios iki indekso 3
+print(arr2)  # [1, 2, 3]
+
+# Taip pat galime nurodyti trečią parametrą, kuris nurodo žingsnį
+# Žingsnis nurodo kas kiek elementų kopijuoti
+arr = [1, 2, 3, 4, 5]
+arr2 = arr[::2]  # Kopijuojame kas antrą elementą, pradedant nuo pradžios iki galo
+print(arr2)  # [1, 3, 5]
+
+# Taip pat galime nurodyti neigiamą žingsnį
+arr = [1, 2, 3, 4, 5]
+arr2 = arr[::-1]  # Kopijuojame masyvą atvirkštine tvarka
+print(arr2)  # [5, 4, 3, 2, 1]
+
+# Parašysime visus slice operatoriaus argumentus
+# arr[from:to:step]
+# from - nuo kurio indekso kopijuoti
+# to - iki kurio indekso kopijuoti
+# step - kas kiek elementų kopijuoti
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+arr2 = arr[1:8:2]  # Kopijuojame kas antrą elementą nuo indekso 1 iki 8
+print(arr2)  # [2, 4, 6, 8]
+arr3 = arr[-1:-8:-2]  # Kopijuojame kas antrą elementą nuo paskutinio iki -8
+print(arr3)  # [10, 8, 6, 4]
+
+# Masyvas iš range() funkcijos
+# 0 - 100
+# range() funkcija sukuria skaičių seką
+# list() funkcija paverčia skaičių seką į masyvą
+arr = list(range(101))
+print(arr)
+
+# Naudojant funkciją list() kartu su range() galime sukurti masyvą.
+
+# Sukursime masyvą, kuris bus nuo 1 iki 10
+arr = list(range(1, 11))
+print(arr)  # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Sukursime masyvą, kuris bus nuo 1 iki 10, bet kas antrą elementą
+arr = list(range(1, 11, 2))
+print(arr)  # [1, 3, 5, 7, 9]
+
+# Sukursime masyvą, kuris bus nuo 10 iki 1
+arr = list(range(10, 0, -1))
+print(arr)  # [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+# Viskas veikia taip pat kaip ir su for ciklu
+# Tik šiuo atveju mes kuriame masyvą
+
+
+# Jei norime sukurti masyvą iš įvestos eilutės, tai galime naudoti split() metodą,
+# kuris padalins eilutę į atskirus elementus pagal nurodytą simbolį.
+
+# line = input() # atkomentuokite, jei norite patis įvesti eilutę
+line = "1 2 3 4 5 6 7 8 9 10"  # užkomentuokite, jei norite patis įvesti eilutę
+str_array = line.split()  # padaliname eilutę pagal tarpus
+print(str_array)  # ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+# Mes gavome masyvą, kurio elementai yra tekstai. Norint gauti skaičius, reikia juos sukonvertuoti.
+arr = list(map(int, str_array))  # sukonvertuojame tekstus į skaičius
+print(arr)  # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Jei norime sukonvertuoti į float, tai galime naudoti float vietoj int.
+arr = list(map(float, str_array))  # sukonvertuojame tekstus į skaičius
+print(arr)  # [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
+
+line = "1,2,3,4,5,6,7,8,9,10"  # užkomentuokite, jei norite patis įvesti eilutę
+str_array = line.split(",")  # padaliname eilutę pagal kablelį
+print(str_array)  # ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
+line = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"  # užkomentuokite, jei norite patis įvesti eilutę
+str_array = line.split(", ")  # padaliname eilutę pagal kablelį ir tarpą
+print(str_array)  # ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
+# Funkcijos veikiančios su masyvais
+arr = [1, 2, 3, 4, 5, -5, -4, -3, -2, -1, -5, 6, 7, 8, 9, 10]
+
+# min() - mažiausia reikšmė masyve
+print(min(arr))  # -5
+
+# max() - didžiausia reikšmė masyve
+print(max(arr))  # 10
+
+# sum() - sumuoja visus masyvo elementus
+print(sum(arr))  # 40
+
+# index() - grąžina pirmo sutampančio elemento indeksą
+print(arr.index(-5))  # 5
