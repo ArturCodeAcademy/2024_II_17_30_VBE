@@ -252,3 +252,12 @@ print(sum(arr))  # 40
 
 # index() - grąžina pirmo sutampančio elemento indeksą
 print(arr.index(-5))  # 5
+
+# sorted() - sukurs naują masyvą, kuris bus surikiuotas
+sorted_arr = sorted(arr)
+print(sorted_arr)  # [-5, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(arr)  # [1, 2, 3, 4, 5, -5, -4, -3, -2, -1, -5, 6, 7, 8, 9, 10]
+
+# sort
+arr.sort()  # surikiuoja masyvą
+print(arr)  # [-5, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
