@@ -1,0 +1,15 @@
+Dinosaur
+Elephant
+Giraffe
+Hippopotamus
+Kangaroo
+Koala
+Lion
+Monkey
+Penguin
+Robot
+Astrology
+Astronomy
+Computer
+Academy
+Hangman
