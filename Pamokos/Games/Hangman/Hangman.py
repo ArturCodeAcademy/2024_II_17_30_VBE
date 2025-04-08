@@ -12,10 +12,10 @@ left_attempts = len(hangman_drawings) - 1
 selected_word = random.choice(words).upper()
 hidden_word = ["_"] * len(selected_word)
 guessed_letters = []
-colors = ['\033[91m', '\033[92m', '\033[93m', '\033[94m', '\033[95m', '\033[96m', '\033[97m']
 
 
 def print_colored_text(text):
+    colors = ['\033[91m', '\033[92m', '\033[93m', '\033[94m', '\033[95m', '\033[96m', '\033[97m']
     for c in text:
         color = random.choice(colors)
         print(f"{color}{c}\033[0m", end="")
@@ -25,6 +25,8 @@ def print_game_state():
     os.system('cls')  # if Windows else 'clear'
     print()
     print_colored_text(hangman_drawings[left_attempts])
+    print()
+    print('💜' * left_attempts + '💔' * (len(hangman_drawings) - left_attempts - 1))
     print('\033[36m')
     print("".join(hidden_word))
     print("\033[97m")
