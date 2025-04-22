@@ -58,6 +58,7 @@ background_color = '\033[0m'  # Fono spalva (balta)
 snake = [Coord(map_width // 2, map_height // 2)]  # Gyvatės kūnas
 snake += [snake[0] + LEFT, snake[0] + LEFT + LEFT]  # Pradinis gyvatės ilgis
 direction = Coord(1, 0)  # Gyvatės judėjimo kryptis
+next_direction = direction.copy()  # Kito judėjimo kryptis
 food = Coord()  # Maisto koordinatės
 score = 0  # Žaidėjo taškai
 render_time = time.time() + render_delay  # Laikas, kada paskutinį kartą atvaizdavome žaidimą
@@ -127,6 +128,21 @@ def is_game_over():
     return False
 
 
+def get_next_direction():
+    global direction
+    next_direction = direction.copy()
+
+    if keyboard.is_pressed('w') and direction != DOWN:
+        next_direction = UP
+    elif keyboard.is_pressed('s') and direction != UP:
+        next_direction = DOWN
+    elif keyboard.is_pressed('a') and direction != RIGHT:
+        next_direction = LEFT
+    elif keyboard.is_pressed('d') and direction != LEFT:
+        next_direction = RIGHT
+
+    return next_direction
+
 set_food()
 render()
 # Laukiame kol žaidėjas paspaus klavišą
@@ -134,5 +150,17 @@ render()
 os.system('pause')
 
 while not is_game_over():
-    render()
     move_snake()
+    render()
+
+    while time.time() < render_time:
+        # Laukiame kol žaidėjas paspaus klavišą
+        next_direction = get_next_direction()
+    direction = next_direction  # Pakeiciame gyvates krypti
+    render_time = time.time() + render_delay  # Pakeiciame laika
+
+    # Patikriname ar gyvate suvalgė maistą
+    if snake[0] == food:
+        set_food()  # Nustatome naują maisto pozicija
+        score += score_per_food  # Padidiname taškus
+        snake.append(snake[-1])  # Padidiname gyvates ilgį
